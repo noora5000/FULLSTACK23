@@ -1,2 +1,2 @@
 # FULLSTACK23
-Helsinki University MOOC Fullstack open 2023
+HU MOOC Fullstack open 2023
