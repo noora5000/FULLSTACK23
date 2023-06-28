@@ -1,2 +1,2 @@
 # FULLSTACK23
-HU MOOC Fullstack open 2023
+HY MOOC Fullstack open 2023
