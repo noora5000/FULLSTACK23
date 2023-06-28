@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
 const DisplayAnecdote = (props) => {
-  const {heading, input} = props
-  if(input === null){
+  const {heading, input, votes} = props
+  if(!input){
     return (
       <p>No votes yet. Start voting anecdotes to see which one gets the most votes.</p>
     )
@@ -10,7 +10,10 @@ const DisplayAnecdote = (props) => {
     return (
       <>
         <h2>{heading}</h2>
-        <p>{input}</p>
+        <p>{input}<br/>
+        has {votes} votes
+        </p>
+        
       </>
     )
   }
@@ -48,16 +51,15 @@ const App = () => {
   const countPoints = () => {
     copy[selected]+=1
     setPoints(copy)
-    console.log(copy)
   }
   const findAnecdote = () => {
     let variableWithMostVotes = null
     let MostVotes = 0
 
     for(let i=0; i<copy.length; i++){
-      if(copy[i]>MostVotes){
+      if(copy[i]>MostVotes ){
         MostVotes = copy[i]
-        variableWithMostVotes = anecdotes[i]
+        variableWithMostVotes = i
       }
     }
     return(
@@ -67,10 +69,10 @@ const App = () => {
   
   return (
     <div>
-      <DisplayAnecdote heading="Anecdote of the day" input={anecdotes[selected]}/>
+      <DisplayAnecdote heading="Anecdote of the day" input={anecdotes[selected]} votes={copy[selected]}/>
+      <Button handleClick={countPoints} text="vote"/>
       <Button handleClick={generateRandom} text="next anecdote" analyze={false}/>
-      <Button handleClick={countPoints} text="vote anecdote"/>
-      <DisplayAnecdote heading="Anecdote with most votes" input={findAnecdote()}/>
+      <DisplayAnecdote heading="Anecdote with most votes" input={anecdotes[findAnecdote()]} votes={copy[findAnecdote()]}/>
       
     </div>
   )
