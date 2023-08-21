@@ -1,0 +1,21 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5vb3JzdSIsImlkIjoiNjRhNjcwNTE4NDRmM2NkZGYyMmY0MWIzIiwiaWF0IjoxNjg4NjI5NDg5fQ.4R6KUqtHNLQNuJPK0Dq7RNsNUzv7j-3QcBgtVj-Dsjs
+
+{
+    "title": "First class tests",
+    "author":"Robert C. Martin",
+    "url": "http://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.htmll",
+    "likes": 10,
+    "userId": null,
+    "comments": [
+        {
+            "commentText": "Great article!",
+            "user": "64a67051844f3cddf22f41b3"
+        },
+        {
+            "commentText": "I learned a lot from this.",
+            "user": "64a67051844f3cddf22f41b3"
+        }
+    ]
+}
